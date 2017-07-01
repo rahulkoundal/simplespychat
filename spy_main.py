@@ -1,4 +1,5 @@
-from spy_details1 import spy, Spy, ChatMessage, friends
+#project is started
+ from spy_details1 import spy, Spy, ChatMessage, friends
 from steganography.steganography import Steganography
 from datetime import datetime
 import sys
