@@ -4,7 +4,7 @@ from datetime import datetime
 
 # class spy
 # with detsils of name ,salutation,age ,rating as the argument
-# self is used for calling in constructor funnction
+# self is used for calling in constructor function
 
 
 
@@ -21,10 +21,10 @@ class Spy:
 
 
 # class chatmessage
-# meassage and sent_by_me in the argumnet
+# message and sent_by_me in the argument
 
 class ChatMessage:
-     #constructor of the class
+        # constructor of the class
     def __init__(self,message,sent_by_me):
         self.message = message
         self.time = datetime.now()
@@ -32,9 +32,9 @@ class ChatMessage:
 # value is given
 spy = Spy('bond', 'Mr.', 24, 4.7)
 
-friend_one = Spy('Raja', 'Mr.', 4.9, 27)
-friend_two = Spy('Mata Hari', 'Ms.', 4.39, 21)
-friend_three = Spy('No', 'Dr.', 4.95, 37)
+friend_one = Spy('rahul', 'Mr.', 4.9, 27)
+friend_two = Spy('rohan', 'Ms.', 4.39, 21)
+friend_three = Spy('sohan', 'Dr.', 4.95, 37)
 
-#list of friends
+# list of friends
 friends = [friend_one, friend_two, friend_three]

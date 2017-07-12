@@ -10,16 +10,18 @@ from termcolor import colored, cprint
 STATUS_MESSAGES = ['Bob marley is back', 'Sachin not required introduction.', 'Dhoni is two step fast than game']
 
 
-#print("*********Hello! Let 's get started****************")
+# print("*********Hello! Let 's get started****************")
 text = colored("*********Hello! Let 's get started****************", 'blue', attrs=['reverse', 'blink'])
 print(text)
 question = colored("Do you want to continue as " + spy.salutation + " " + spy.name + " (Y/N)? ",'red',attrs=['reverse', 'blink'])
 existing = raw_input(question)
 
-#cprint('Hello, World!', 'green', 'on_blue')
+# cprint('Hello, World!', 'green', 'on_blue')
 
-#add_status() function to add status
-#degination of the function
+# add_status() function to add status
+# designation of the function
+
+
 def add_status():
 
     updated_status_message = None
@@ -50,7 +52,7 @@ def add_status():
 
         message_selection = int(raw_input("\nChoose from the above messages "))
 
-#len() calculate the length of the variable
+# len() calculate the length of the variable
     if len(STATUS_MESSAGES) >= message_selection:
             updated_status_message = STATUS_MESSAGES[message_selection - 1]
 
@@ -64,7 +66,8 @@ def add_status():
 
     return updated_status_message
 
-#add_friend function to add the friend
+# add_friend function to add the friend
+
 
 def add_friend():
 
@@ -89,11 +92,12 @@ def add_friend():
 
     return len(friends)
 
-#select_a_friend() function to select a friend
+# select_a_friend() function to select a friend
+
 
 def select_a_friend():
     item_number = 0
-#for loop is staerted
+# for loop is staerted
 
     for friend in friends:
         print '%d. %s %s aged %d with rating %.2f is online' % (item_number +1, friend.salutation, friend.name,
@@ -104,31 +108,32 @@ def select_a_friend():
     friend_choice = raw_input("Choose from your friends")
 
     friend_choice_position = int(friend_choice) - 1
-#return to return the value of the variable
+# return to return the value of the variable
     return friend_choice_position
-#concatenation will take place
+# concatenation will take place
 
-#send_message function for sending the message to the friends
-#cases when spy send message 100 words
-#cases when spy send a message with special words such as SOS, SAVE ME
-#cases when the image contains no secret message
+# send_message function for sending the message to the friends
+# cases when spy send message 100 words
+# cases when spy send a message with special words such as SOS, SAVE ME
+# cases when the image contains no secret message
+
+
 def send_message():
-#calling to selct_a_friends function
+    # calling to select_a_friends function
 
     friend_choice = select_a_friend()
 
-
     original_image = raw_input("What is the name of the image?")
-    #output path of the image
+    # output path of the image
     output_path = "output.jpg"
     text = raw_input("What do you want to say? ")
- #steganography is used for the incrption and decruption
+    # steganography is used for the incryption and decruption
     Steganography.encode(original_image, output_path, text)
 
     new_chat = ChatMessage(text,True)
 
     friends[friend_choice].chats.append(new_chat)
-#length validation
+# length validation
     if len(text) <= 0:
         print("u cannot send empty message!!!!")
     elif len(text) > 100:
@@ -141,19 +146,19 @@ def send_message():
         friends[friend_choice].chats.append(new_chat)
         print("your secret message is ready.")
 
-#special characters.
+# special characters.
     if text.upper() == "SOS" or text.upper() == "SAVE ME" or text.upper() == "HELP":
         print("you will receive help soon...")
 
 
-#read_message() function to read the message
+# read_message() function to read the message
 
 def read_message():
     # calling to selct_a_friends function
     sender = select_a_friend()
 
     output_path = raw_input("What is the name of the file?")
-#steganography to decodethe message
+# steganography to decode the message
 
     secret_text = Steganography.decode(output_path)
     print secret_text
@@ -164,7 +169,8 @@ def read_message():
 
     print("**************Your secret message has been saved********************")
 
-#read_chat_history() function to read message
+# read_chat_history() function to read message
+
 
 def read_chat_history():
 
@@ -178,15 +184,17 @@ def read_chat_history():
             print(text1)
             cprint(' you said', 'green', 'on_red')
             print(chat.message)
-            #print '[%s] %s: %s' % (chat.time.strftime("%d %B %Y"), 'You said:', chat.message)
+            # print '[%s] %s: %s' % (chat.time.strftime("%d %B %Y"), 'You said:', chat.message)
         else:
             text1 = colored(chat.time.strftime("%a, %d %b %Y %H:%M:%S +0000"), 'blue', attrs=['reverse', 'blink'])
             print(text1)
             cprint(friends[read_for].name,'green','on_red')
             print(chat.message)
-            #print '[%s] %s said: %s' % (chat.time.strftime("%d %B %Y"), friends[read_for].name, chat.message)
+            # print '[%s] %s said: %s' % (chat.time.strftime("%d %B %Y"), friends[read_for].name, chat.message)
 
 cprint('Hello, World!', 'green', 'on_blue')
+
+
 def start_chat(spy):
 
     spy.name = spy.salutation + " " + spy.name
@@ -228,8 +236,6 @@ if existing.upper() == "Y":
 elif existing.upper() =="N":
 
     spy = Spy('','',0,0.0)
-
-
     spy.name = raw_input("Welcome to spy chat, you must tell me your spy name first: ")
 
     if len(spy.name) > 0:
