@@ -3,6 +3,9 @@
 from datetime import datetime
 
 # class spy
+# with detsils of name ,salutation,age ,rating as the argument
+# self is used for calling in constructor funnction
+
 
 
 class Spy:
@@ -18,6 +21,7 @@ class Spy:
 
 
 # class chatmessage
+# meassage and sent_by_me in the argumnet
 
 class ChatMessage:
      #constructor of the class
